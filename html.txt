@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breathing Exercise Widget</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* You can change the font here */
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .widget {
+    background-color: #fce4ec; /* Pink color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .breathing-text {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .breathing-text span {
+    color: #ff4081; /* Pink color for the breathing text */
+  }
+
+  button {
+    background-color: #ff4081; /* Pink color for the button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #f50057; /* Darker pink color on hover */
+  }
+</style>
+</head>
+<body>
+<div class="widget">
+  <h1>Breathing Exercise</h1>
+  <p>Take a moment to focus on your breathing.</p>
+  <p class="breathing-text">Inhale <span>...</span> Exhale <span>...</span></p>
+  <button onclick="startBreathing()">Start</button>
+</div>
+
+<script>
+  function startBreathing() {
+    const breathingText = document.querySelector('.breathing-text');
+    const breaths = ['Inhale', 'Exhale'];
+    let breathCount = 0;
+
+    setInterval(() => {
+      breathingText.innerHTML = `${breaths[breathCount]} <span>...</span>`;
+      breathCount = (breathCount + 1) % 2;
+    }, 3000); // Change the duration as needed (in milliseconds)
+  }
+</script>
+</body>
+</html>
